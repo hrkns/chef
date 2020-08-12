@@ -1,10 +1,50 @@
 This file holds "in progress" release notes for the current release under development and is intended for consumption by the Chef Documentation team. Please see <https://docs.chef.io/release_notes/> for the official Chef release notes.
 
+# What's New in 16.4
+
+## Resource Updates
+
+### chef_client_systemd_timer
+
+The `chef_client_systemd_timer` has been updated to prevent failures running the `:remove` action.
+
+### openssl resource
+
+The various openssl_* resources were refactored to better report the changed state of the resource to Automate or other handlers.
+
+### osx_profile
+
+The `osx_profile` has been refactored as a custom resource internally. This update also better reports the changed state of the resource to Automate or other handlers and no longer silently continues if the attempts to shellout fail.
+
+### powershell_script
+
+The `powershell_script` resource has been refactored to better report the changed state of the resource to Automate or other handlers.
+
+### windows_feature
+
+The `windows_feature` resource has been updated to allow installing features that have been removed if a source location is provided. Thanks for this report [@stefanwb](https://github.com/stefanwb)
+
+### windows_font
+
+The `windows_font` resource will no longer fail if a font has already been installed on newer releases of Windows. Thanks for this report [@bmiller08](https://github.com/bmiller08)
+
+### windows_workgroup
+
+The `windows_workgroup` resource has been updated to treat the `password` property as a sensitive property. The value of the `password` property will no longer be shown in logs or handlers.
+
 # What's New in 16.3.45
 
 - Resolved failures negotiating protocol versions with the Chef Infra Server.
 - Improved log output on Windows systems in the `hostname` resource.
 - Added support to the `archive_file` resource for `pzstd` compressed files.
+
+## Security
+
+### CACerts
+
+### Reduced Dependencies
+
+Smaller builds with fewer deps
 
 # What's New in 16.3.38
 
